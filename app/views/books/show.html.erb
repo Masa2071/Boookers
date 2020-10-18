@@ -1,0 +1,5 @@
+<p><%= notice %></p>
+<p  class="show-title"><strong class="show">Title:</strong><%= @book.title %></p>
+<p class="show-body"><strong class="show">Body:</strong><%= @book.body %></p>
+
+<p><%= link_to "Edit", edit_book_path(@book.id) %>|<%= link_to "Back", books_path %></p>
