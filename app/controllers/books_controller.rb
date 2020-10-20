@@ -18,9 +18,10 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully created."
       redirect_to book_path(@book) #セーブできた時
     else
+     @books = Book.all.order(created_at: :desc)
+    # @bookで値を取得しないとeachに何も入っていないことになる
      render :index
-    # indexに戻すとindexの@books = book.allでindex.htmlのeachが作動しエラーが起きる
-    # eachにnilが入る為　つまりeachを停止させエラー分を出さなくてはいけない。
+  
     end
   end
 
