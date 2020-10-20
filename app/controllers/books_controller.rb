@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 
   def index
     #全データ取得
-    @books = Book.all.order(created_at: :desc)
+    @books = Book.all
     # 今回は一覧画面から投稿するためindex内で空のオブジェクトを生成
     @book = Book.new
   end
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully created."
       redirect_to book_path(@book) #セーブできた時
     else
-     @books = Book.all.order(created_at: :desc)
+     @books = Book.all
     # @bookで値を取得しないとeachに何も入っていないことになる
      render :index
   
